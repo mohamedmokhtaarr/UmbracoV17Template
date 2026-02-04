@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace MyProject.Model.Gen
 {
-	/// <summary>News Listing Page</summary>
-	[PublishedModel("newsListingPage")]
-	public partial class NewsListingPage : PublishedContentModel, IPaginatedListingComposition, ISeoCompositionName
+	/// <summary>#SiteMap_CompositionName</summary>
+	[PublishedModel("siteMapComposition")]
+	public partial class SiteMapComposition : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		public new const string ModelTypeAlias = "newsListingPage";
+		public new const string ModelTypeAlias = "siteMapComposition";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
@@ -34,14 +34,14 @@ namespace MyProject.Model.Gen
 			=> PublishedModelUtility.GetModelContentType(contentTypeCache, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<NewsListingPage, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<SiteMapComposition, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(contentTypeCache), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public NewsListingPage(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public SiteMapComposition(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,42 +50,25 @@ namespace MyProject.Model.Gen
 		// properties
 
 		///<summary>
-		/// #PaginatedList_NumberOfItemsPerPagePropertyName
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		[ImplementPropertyType("numberOfItemsPerPage")]
-		public virtual int NumberOfItemsPerPage => global::MyProject.Model.Gen.PaginatedListingComposition.GetNumberOfItemsPerPage(this, _publishedValueFallback);
-
-		///<summary>
-		/// #Seo_MetaDescriptionPropertyName
+		/// #SiteMap_ChangeFrequencyPropertyName
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("MetaDescription")]
-		public virtual string MetaDescription => global::MyProject.Model.Gen.SeoCompositionName.GetMetaDescription(this, _publishedValueFallback);
+		[ImplementPropertyType("changeFrequency")]
+		public virtual string ChangeFrequency => this.Value<string>(_publishedValueFallback, "changeFrequency");
 
 		///<summary>
-		/// #Seo_MetaKeywordsPropertyName
+		/// #SiteMap_HideFromSiteMapPropertyName
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("metaKeywords")]
-		public virtual global::System.Collections.Generic.IEnumerable<string> MetaKeywords => global::MyProject.Model.Gen.SeoCompositionName.GetMetaKeywords(this, _publishedValueFallback);
+		[ImplementPropertyType("hideFromSiteMap")]
+		public virtual bool HideFromSiteMap => this.Value<bool>(_publishedValueFallback, "hideFromSiteMap");
 
 		///<summary>
-		/// #Seo_MetaTitlePropertyName
+		/// #SiteMap_RelativeSeoPriorityPropertyName
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("metaTitle")]
-		public virtual string MetaTitle => global::MyProject.Model.Gen.SeoCompositionName.GetMetaTitle(this, _publishedValueFallback);
-
-		///<summary>
-		/// #Seo_SocialShareImagePropertyName
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "17.1.0+2832436")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("socialShareImage")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops SocialShareImage => global::MyProject.Model.Gen.SeoCompositionName.GetSocialShareImage(this, _publishedValueFallback);
+		[ImplementPropertyType("relativeSeoPriority")]
+		public virtual decimal RelativeSeoPriority => this.Value<decimal>(_publishedValueFallback, "relativeSeoPriority");
 	}
 }
